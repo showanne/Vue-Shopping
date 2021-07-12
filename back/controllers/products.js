@@ -36,15 +36,45 @@ export const newProduct = async (req, res) => {
   console.log('newProduct')
 }
 
-// 檢視商品
+// 檢視商品 (一般消費者)
 export const getProduct = async (req, res) => {
+  try {
+    const result = await products.find({ sell: true })
+    res.status(200).send({ success: true, message: '', result })
+  } catch (error) {
+    res.status(500).send({ success: false, message: '伺服器錯誤' })
+  }
+  console.log('getProduct')
+}
+
+// 檢視商品 (後臺管理者)
+export const getAllProduct = async (req, res) => {
+  if (req.user.role !== 1) {
+    res.status(403).send({ success: false, message: '沒有權限' })
+    return
+  }
   try {
     const result = await products.find()
     res.status(200).send({ success: true, message: '', result })
   } catch (error) {
     res.status(500).send({ success: false, message: '伺服器錯誤' })
   }
-  console.log('getProduct')
+  console.log('getAllProduct')
+}
+
+// 個別商品頁面
+export const getProductById = async (req, res) => {
+  try {
+    const result = await products.findById(req.params.id)
+    res.status(200).send({ success: true, message: '', result })
+  } catch (error) {
+    if (error.name === 'CastError') {
+      res.status(404).send({ success: false, message: '查無商品' })
+    } else {
+      res.status(500).send({ success: false, message: '伺服器錯誤' })
+    }
+  }
+  console.log('getProductById')
 }
 
 // 編輯商品

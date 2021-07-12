@@ -6,6 +6,7 @@
         v-for="product in products"
         :key="product._id"
       )
+        //- router-link(:to="'/product/'+product._id").text-decoration-none
         ProductCard(:product="product").p-5
 </template>
 

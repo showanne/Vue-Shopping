@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
 Vue.use(Vuex)
 
@@ -40,6 +41,15 @@ export default new Vuex.Store({
         role: 0,
         email: ''
       }
+    },
+    extend (state, data) {
+      state.jwt.token = data
+      state.jwt.received = new Date().getTime()
+    },
+    getinfo (state, data) {
+      state.user.account = data.account
+      state.user.role = data.role
+      state.user.email = data.email
     }
   },
   actions: {
@@ -56,5 +66,8 @@ export default new Vuex.Store({
         ...state.user
       }
     }
-  }
+  },
+  plugins: [createPersistedState({
+    paths: ['jwt']
+  })]
 })

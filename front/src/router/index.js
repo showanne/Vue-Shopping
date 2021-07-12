@@ -15,6 +15,32 @@ const routes = [
     }
   },
   {
+    path: '/product/:id',
+    name: 'Product',
+    component: () => import(/* webpackChunkName: "product" */ '../views/Product.vue'),
+    meta: {
+      title: '商品 | 購物網'
+    }
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import(/* webpackChunkName: "cart" */ '../views/Cart.vue'),
+    meta: {
+      login: true,
+      title: '購物車 | 購物網'
+    }
+  },
+  {
+    path: '/orders',
+    name: 'Orders',
+    component: () => import(/* webpackChunkName: "orders" */ '../views/Orders.vue'),
+    meta: {
+      login: true,
+      title: '訂單 | 購物網'
+    }
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
