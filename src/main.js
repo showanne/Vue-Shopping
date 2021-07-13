@@ -14,7 +14,7 @@ import ImgInputer from 'vue-img-inputer'
 import 'vue-img-inputer/dist/index.css'
 import VueGtag from 'vue-gtag'
 
-import { BootstrapVue, BIcon, BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
+import { BootstrapVue, BIcon, BIconCartPlus } from 'bootstrap-vue'
 
 // 全域引用 mixin，這樣各分頁要是用變數就可以直接使用
 import mixin from './mixin.js'
@@ -29,8 +29,7 @@ Vue.component('ImgInputer', ImgInputer)
 
 // BootstrapVue Icon
 Vue.component('BIcon', BIcon)
-Vue.component('BIconArrowUp', BIconArrowUp)
-Vue.component('BIconArrowDown', BIconArrowDown)
+Vue.component('BIconCartPlus', BIconCartPlus)
 
 // 全域引用 mixin，這樣各分頁要是要用變數就可以直接使用
 Vue.mixin(mixin)

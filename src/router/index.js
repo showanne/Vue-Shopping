@@ -112,7 +112,7 @@ const router = new VueRouter({
 // .beforeEach 在進去頁面之前
 router.beforeEach((to, from, next) => {
   // console.log(store.state.user)
-  console.log('beforeEach')
+  // console.log('beforeEach')
   if (to.meta.login && store.state.user.account.length === 0) {
     // 如果現在不是登入 且 帳號長度為 0
     // 導去登入畫面

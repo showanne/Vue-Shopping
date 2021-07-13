@@ -9,7 +9,7 @@
     //- b-card-footer
     b-button(:to="'/product/'+product._id" variant='warning')
       .h2.mb-0 Go
-        b-icon-arrow-up
+        b-icon-cart-plus
 </template>
 
 <script>
