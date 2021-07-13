@@ -67,5 +67,10 @@ export default new Vuex.Store({
       }
     }
   },
-  plugins: [createPersistedState()]
+  // 將 Vuex 資料存 localstorage
+  plugins: [
+    createPersistedState({
+      key: 'Shopping'
+    })
+  ]
 })
