@@ -67,7 +67,5 @@ export default new Vuex.Store({
       }
     }
   },
-  plugins: [createPersistedState({
-    paths: ['jwt']
-  })]
+  plugins: [createPersistedState()]
 })

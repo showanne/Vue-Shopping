@@ -7,7 +7,9 @@
   )
     b-card-text(style="white-space: pre-line;") {{ product.description }}
     //- b-card-footer
-    b-button(:to="'/product/'+product._id" variant='warning') Go +
+    b-button(:to="'/product/'+product._id" variant='warning')
+      .h2.mb-0 Go
+        b-icon-arrow-up
 </template>
 
 <script>
